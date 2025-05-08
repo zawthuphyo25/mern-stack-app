@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const mongoURL =
-  "mongodb+srv://zawthuphyo:test1234@mern-cluster.hv87ai4.mongodb.net/?retryWrites=true&w=majority&appName=Mern-Cluster";
+  "mongodb+srv://zawthuphyo:test1234@mern-cluster.lrfrcs1.mongodb.net/?retryWrites=true&w=majority&appName=Mern-Cluster";
 mongoose.connect(mongoURL).then(() => {
   console.log("MongoDB connected");
   app.listen(process.env.PORT, () => {

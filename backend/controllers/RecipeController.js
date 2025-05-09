@@ -24,7 +24,7 @@ const RecipeController = {
       let recipe = await Recipe.findById(id);
       return res.json(recipe);
     } catch (e) {
-      return res.status(400).json({ msg: "recipe not found" });
+      return res.status(500).json({ msg: "internet server error" });
     }
   },
   destroy: (req, res) => {

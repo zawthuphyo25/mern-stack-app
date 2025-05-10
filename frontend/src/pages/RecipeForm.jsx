@@ -1,7 +1,16 @@
+import { useState } from "react";
 import plus from "../assets/plus.svg";
 import Ingredients from "../components/Ingredients";
 
 export default function RecipeForm() {
+  let [ingredients, setIngredients] = useState([]);
+  let [newingredient, setNewIngredient] = useState("");
+
+  const addIngredient = () => {
+    setIngredients((prev) => [newingredient, ...prev]);
+    setNewIngredient("");
+  };
+
   return (
     <div className="mx-auto max-w-md border-2 border-white p-4">
       <h1 className="mb-6 text-2xl font-bold text-orange-400 text-center">
@@ -19,11 +28,17 @@ export default function RecipeForm() {
             type="text"
             placeholder="Recipe Ingredient"
             className="w-full p-1"
+            value={newingredient}
+            onChange={(e) => setNewIngredient(e.target.value)}
           />
-          <img src={plus} className="cursor-pointer w-[32px]" />
+          <img
+            src={plus}
+            className="cursor-pointer w-[32px]"
+            onClick={addIngredient}
+          />
         </div>
         <div>
-          <Ingredients ingredients={[]} />
+          <Ingredients ingredients={ingredients} />
         </div>
         <button className="w-full px-3 py-1 rounded-full bg-orange-400 text-white">
           Create Recipe
